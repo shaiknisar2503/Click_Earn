@@ -1,0 +1,82 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "A user of the clicker app",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "The user's unique ID"
+        },
+        "name": {
+          "type": "string",
+          "description": "The user's display name"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The user's email address"
+        },
+        "clicks": {
+          "type": "number",
+          "description": "Total number of clicks the user has made"
+        },
+        "earnings": {
+          "type": "number",
+          "description": "Total earnings of the user in Rupees"
+        },
+        "role": {
+          "type": "string",
+          "enum": ["user", "admin"],
+          "description": "The user's role"
+        }
+      },
+      "required": ["uid", "name", "email", "clicks", "earnings", "role"]
+    },
+    "Withdrawal": {
+      "title": "Withdrawal",
+      "description": "A request to withdraw earnings",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The ID of the user requesting the withdrawal"
+        },
+        "amount": {
+          "type": "number",
+          "description": "The amount to withdraw in Rupees"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "approved", "rejected"],
+          "description": "The status of the withdrawal request"
+        },
+        "bankDetails": {
+          "type": "string",
+          "description": "The user's bank account details"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the request was created"
+        }
+      },
+      "required": ["userId", "amount", "status", "bankDetails", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": {
+        "$ref": "#/entities/User"
+      },
+      "description": "Stores user profiles and their earnings/clicks"
+    },
+    "/withdrawals/{withdrawalId}": {
+      "schema": {
+        "$ref": "#/entities/Withdrawal"
+      },
+      "description": "Stores withdrawal requests"
+    }
+  }
+}
