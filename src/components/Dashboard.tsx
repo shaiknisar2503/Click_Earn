@@ -3,7 +3,7 @@ import { auth, db } from '../firebase';
 import { doc, onSnapshot, updateDoc, increment } from 'firebase/firestore';
 import { Coins, LogOut, Wallet, MousePointerClick, PlayCircle, Camera } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import WithdrawModal from './WithdrawModal';
+import WithdrawModal from './withdrawModal';
 
 export default function Dashboard({ user }: { user: any }) {
   const [userData, setUserData] = useState<any>(null);
