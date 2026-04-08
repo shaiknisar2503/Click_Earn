@@ -22,11 +22,7 @@ export default defineConfig(({mode}) => {
        headers: {
     "Cross-Origin-Opener-Policy": "same-origin-allow-popups",
   },
-      export default {
-  build: {
-    chunkSizeWarningLimit: 1000
-  }
-}
+     
     },
   };
 });
