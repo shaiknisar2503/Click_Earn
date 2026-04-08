@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { db } from '../firebase';
 import { collection, doc, increment, serverTimestamp, writeBatch } from 'firebase/firestore';
-import { X, Building2, AlertCircle, CheckCircle2, Save, ArrowLeft } from 'lucide-react';
+import {  Building2, AlertCircle, CheckCircle2, Save, ArrowLeft } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export default function WithdrawModal({ user, userData, onClose }: { user: any, userData: any, onClose: () => void }) {
